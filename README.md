@@ -1,228 +1,152 @@
 # TaxArch India
 
-**Lifecycle Tax Regime Optimiser for Indian Individual Taxpayers**
-
-Every tax calculator in India answers the same question: which regime saves more tax this year?
-TaxArch answers the deeper question: which regime builds more wealth over the next 30 years?
-
-The answer is not obvious. The old regime forces Rs 1.5 lakh in annual 80C investments as a
-condition of the deduction. Those investments compound over two to three decades into significant
-wealth. The new regime saves tax today but removes the investment discipline that drives long-term
-wealth accumulation. At higher incomes, the old regime's forced corpus often exceeds the new
-regime's cumulative tax savings, even before accounting for 80D and home loan interest deductions.
-
-TaxArch models the full lifecycle trajectory, not just the current year.
+> **Every tax calculator tells you which regime saves more this year.**
+> **TaxArch tells you which one builds more wealth over the next 30 years.**
 
 ---
 
-## Live Demo
+<div align="center">
 
-Frontend: [jessicamathew31-coder.github.io/taxarch-india](https://jessicamathew31-coder.github.io/taxarch-india)
+**[Live Demo](https://jessicamathew31-coder.github.io/taxarch-india/) · [API](https://taxarch-india-api.onrender.com/health) · [Portfolio](https://jessicamathew31-coder.github.io)**
 
-Backend API: Render deployment (see Environment Setup below)
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=flat-square)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.111-green?style=flat-square)
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-336791?style=flat-square)
+![Deployed](https://img.shields.io/badge/Deployed-Render%20%2B%20GitHub%20Pages-success?style=flat-square)
 
----
-
-## Core Innovation
-
-The regime comparison problem in India has a hidden dimension that no existing tool models.
-
-When you claim Section 80C, you are forced to invest Rs 1.5 lakh annually in instruments like PPF
-(7.1% EEE), ELSS (12% with 3-year lock-in), or NPS (10% with partial EEE). Over a 25-year horizon,
-Rs 1.5 lakh per year at 9% blended return grows to approximately Rs 1.4 crore. The new regime
-saves perhaps Rs 45,000 to Rs 75,000 in tax per year at a Rs 15 lakh income level, but if that
-saving is not invested (which is the realistic scenario for most taxpayers), the regime comparison
-is not just about tax: it is about forced savings discipline vs spending freedom.
-
-TaxArch makes this comparison honest by modelling both sides: the old regime corpus (from mandated
-investments) and the new regime corpus (assuming the tax saving is invested at the same blended
-return). Even on this fair-comparison basis, the old regime often wins at incomes above Rs 10 lakh
-because of the additive effect of 80CCD(1B) (Rs 50,000 outside the ceiling), Section 24(b)
-(Rs 2 lakh for home loan interest), and 80D (Rs 25,000 to Rs 1 lakh for health insurance).
+</div>
 
 ---
 
-## Technical Architecture
+![TaxArch India Home](docs/images/home.png)
+
+---
+
+## The Problem Nobody Is Solving
+
+India has two income tax regimes. Millions of calculators exist to tell you which one saves more tax this year.
+
+None of them ask the deeper question.
+
+The old regime forces you to invest Rs 1.5 lakh annually in PPF, ELSS, and NPS to claim the 80C deduction. Those investments compound over 20 to 30 years. At a blended 9% return, Rs 1.5 lakh per year grows to over Rs 1.4 crore by retirement. The new regime saves perhaps Rs 45,000 in tax today but removes the investment discipline that builds that corpus.
+
+**The optimal regime is not a current-year tax question. It is a lifetime wealth question.**
+
+TaxArch models the full trajectory.
+
+---
+
+## Profile Analyser
+
+![TaxArch India Analyser](docs/images/analyser.png)
+
+---
+
+## 25-Year Lifecycle Projection
+
+![TaxArch India Lifecycle](docs/images/lifecycle.png)
+
+---
+
+## What TaxArch Models
+
+### Lifecycle Projection Engine
+Projects income at your growth rate for every year of your horizon. Computes tax under both regimes at each year's income. Compounds the 80C corpus under the old regime. Under the new regime, assumes the tax saving is invested at the same blended return. Shows the wealth gap at retirement.
+
+### Regime Switch Detection
+Flags the exact year when one regime overtakes the other in cumulative wealth.
+
+### Deduction Mapper
+Maps all 29 deductions in the Income Tax Act to your profile. Shows claimed vs unclaimed amounts and the marginal annual tax saving from claiming each missed deduction. The most commonly missed: **80CCD(1B)** — Rs 50,000 in additional NPS that sits completely outside the Rs 1.5 lakh ceiling.
+
+### Life Event Tax Impact
+Home purchase, marriage, children, education loans, senior parent health insurance — each event shifts the regime recommendation. TaxArch models all of them across your projection horizon.
+
+### Investment Architecture Generator
+Allocates the 80C budget across PPF, ELSS, NPS, NSC, and other instruments based on your risk preference. Shows corpus projections at retirement for each instrument.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Backend | FastAPI (Python 3.11) |
+| Data models | Pydantic v2 |
+| Database | PostgreSQL 15 |
+| Frontend | React 18 + Recharts |
+| Hosting | Render (backend) + GitHub Pages (frontend) |
+
+---
+
+## Architecture
 
 ```
 taxarch-india/
   backend/
-    main.py                    FastAPI application, all routes
-    models/
-      user_profile.py          Pydantic request and response models
+    main.py                     7 API routes, stateless design
+    models/user_profile.py      Full Pydantic schema
     services/
-      tax_calculator.py        Core slab engine (both regimes, FY 2025-26)
-      lifecycle_projector.py   25-year corpus projection
-      investment_optimizer.py  80C instrument allocation generator
-      deduction_mapper.py      30+ deduction audit with marginal saving
-      life_event_modeler.py    Life event tax impact calculator
+      tax_calculator.py         Progressive slab engine, 87A rebate, surcharge, cess
+      lifecycle_projector.py    25-year corpus model for both regimes
+      investment_optimizer.py   80C allocation with annuity corpus projections
+      deduction_mapper.py       29-deduction audit with marginal saving computation
+      life_event_modeler.py     Per-event tax impact and narrative
     data/
-      tax_slabs.json           FY 2025-26 slab rates, 87A rebate, cess
-      deductions.json          29 deduction records with eligibility rules
-      instruments.json         9 investment instruments with return assumptions
-      inflation.json           CPI assumptions and income growth presets
+      tax_slabs.json            FY 2025-26 rates (sourced from incometaxindia.gov.in)
+      deductions.json           29 deductions with eligibility rules
+      instruments.json          9 instruments with sourced return assumptions
     database/
-      schema.sql               PostgreSQL schema, 6 tables, 4 indexes
-      init_db.py               Schema apply + reference data seed
-    requirements.txt
-
+      schema.sql                6 tables, 4 indexes
+      init_db.py                Schema + seed, safe to re-run
   frontend/
     src/
-      App.jsx                  Router and global profile state
-      index.css                Design system (ink-black + gold, Playfair + DM Mono)
-      pages/
-        Home.jsx               Landing page
-        Analyzer.jsx           Profile builder + tabbed results
-        Lifecycle.jsx          25-year projection page
-        Dashboard.jsx          Power BI observatory (Module 7)
-      components/
-        ProfileBuilder/        Full income and deduction input form
-        RegimeComparison/      Current-year tax comparison + break-even
-        LifecycleChart/        25-year corpus chart with view modes
-        DeductionMapper/       30+ deduction audit with claimed/unclaimed filter
-        InvestmentArchitecture/ 80C allocation with corpus projections
-        LifeEventCalculator/   Per-event tax impact narrative cards
-    vite.config.js
-    index.html
-    package.json
+      components/               ProfileBuilder, RegimeComparison, LifecycleChart,
+                                DeductionMapper, InvestmentArchitecture, LifeEventCalculator
+      pages/                    Home, Analyser, Lifecycle, Observatory
 ```
-
-### Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Backend framework | FastAPI (Python 3.11) |
-| Data models | Pydantic v2 |
-| Database | PostgreSQL 15 (Render) |
-| Frontend framework | React 18 |
-| Charting | Recharts 2.12 |
-| Icons | Lucide React |
-| Build tool | Vite 5 |
-| Frontend hosting | GitHub Pages |
-| Backend hosting | Render |
 
 ---
 
-## Modules
-
-### Module 1: Profile Builder
-
-Collects age, income, employment type, family status, growth rate, life events, and declared
-deductions. The form is intentionally sparse: essential fields visible, advanced fields (HRA,
-NPS employer contribution, education loan) behind a disclosure toggle.
-
-### Module 2: Current Year Regime Analyser
-
-Computes FY 2025-26 tax liability under both regimes using the progressive slab structure,
-Section 87A rebate (Rs 60,000 under new regime for incomes up to Rs 12 lakh), surcharge with
-marginal relief, and 4% cess. Shows the break-even deduction level: below this, new regime wins.
-
-### Module 3: Lifecycle Projection Engine
-
-The core module. Projects income at the user-specified growth rate for each year of the
-projection horizon. Computes tax under both regimes at each income level. For the old regime,
-80C investments are added to corpus and compounded. For the new regime, the tax saving (if any)
-vs old regime is assumed to be invested at the same blended return. The gap in cumulative wealth
-at the projection horizon is the headline output.
-
-### Module 4: Investment Architecture Generator
-
-Allocates the Rs 1.5 lakh 80C budget across instruments based on risk preference. PPF-heavy for
-low risk, balanced PPF/ELSS/NPS for medium risk, ELSS-heavy for high risk. NPS 80CCD(1B) is
-always recommended first because it sits outside the Rs 1.5 lakh ceiling and is the single most
-commonly missed deduction in India. Each allocation shows the expected corpus at retirement via
-annuity formula.
-
-### Module 5: Life Event Tax Impact Calculator
-
-Quantifies the tax impact of planned life events: home purchase (Section 24(b) + 80C principal),
-marriage (expanded 80D), children (80C tuition, SSY), education loan (80E), senior parent health
-insurance (additional 80D), and retirement (income profile change). Events are modelled from the
-year they occur and their deduction impact accumulates over the remaining projection period.
-
-### Module 6: Comprehensive Deduction Mapper
-
-Maps all 29 deductions in the Income Tax Act to the user's profile. Each deduction shows:
-claimed amount, maximum eligible amount, unclaimed gap, and the marginal annual tax saving from
-claiming the full amount. The marginal saving is computed by running two tax calculations (before
-and after the unclaimed gap) rather than multiplying by marginal rate, which correctly handles
-slab boundary effects.
-
-### Module 7: Analytics Observatory
-
-Power BI dashboard showing cohort-level patterns from the scenario_results table. Regime
-distribution by income band, age group, and life stage. Planned for Render deployment with
-the PostgreSQL backend.
-
----
-
-## Environment Setup
-
-### Backend
+## Running Locally
 
 ```bash
-cd backend
-pip install -r requirements.txt
+# Clone
+git clone https://github.com/jessicamathew31-coder/taxarch-india.git
+cd taxarch-india
 
-# Set environment variables
-export DATABASE_URL=postgresql://user:password@host:5432/taxarch
+# Backend
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -r backend/requirements.txt
+export DATABASE_URL=postgresql://user:password@localhost/taxarch
+python backend/database/init_db.py
+uvicorn backend.main:app --reload --port 8000
 
-# Initialise database (applies schema + seeds reference data)
-python database/init_db.py
-
-# Start development server
-uvicorn main:app --reload --port 8000
-```
-
-### Frontend
-
-```bash
+# Frontend (new terminal)
 cd frontend
 npm install
-npm run dev          # Development server at localhost:5173
-
-# Set API URL for production
-echo "VITE_API_URL=https://your-render-app.onrender.com" > .env
-npm run build        # Outputs to dist/
+npm run dev
 ```
 
-### Deployment
-
-**Backend (Render):**
-
-1. Create a new Web Service on Render from this repository.
-2. Set build command: `pip install -r backend/requirements.txt`
-3. Set start command: `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
-4. Add `DATABASE_URL` environment variable pointing to a Render PostgreSQL instance.
-5. Run `python backend/database/init_db.py` once from the Render shell.
-
-**Frontend (GitHub Pages):**
-
-```bash
-cd frontend
-npm run build
-# Copy dist/ contents to the gh-pages branch, or use GitHub Actions
-```
-
-A GitHub Actions workflow for automated deployment is in `.github/workflows/deploy.yml`.
+Open http://localhost:5173/taxarch-india/
 
 ---
 
 ## Tax Computation Details
 
-All computations follow the Income Tax Act as amended by Finance Act 2024. Key rules implemented:
+All computations follow the Income Tax Act as amended by Finance Act 2024:
 
 - FY 2025-26 slab rates for both regimes
-- Section 87A rebate: Rs 12,500 (old, income up to Rs 5 lakh) / Rs 60,000 (new, income up to Rs 12 lakh)
-- Surcharge with marginal relief for incomes above Rs 50 lakh
-- Health and Education Cess at 4%
-- HRA exemption: minimum of three criteria (actual HRA, 50%/40% of basic, rent minus 10% of basic)
+- Section 87A rebate: Rs 12,500 (old, up to Rs 5L) / Rs 60,000 (new, up to Rs 12L)
+- Surcharge with marginal relief
+- 4% Health and Education Cess
+- HRA: minimum of three criteria
 - Section 24(b): Rs 2 lakh cap for self-occupied property
-- 80C ceiling: Rs 1,50,000 aggregate for 80C + 80CCC + 80CCD(1)
-- 80CCD(1B): Rs 50,000 additional NPS, independent of 80C ceiling
+- 80C aggregate ceiling: Rs 1,50,000
+- 80CCD(1B): Rs 50,000 independent of 80C ceiling
 - Standard deduction: Rs 50,000 (old) / Rs 75,000 (new) from FY 2025-26
-
-See `docs/tax-rules-reference.md` for the complete rule set with statutory citations.
 
 ---
 
@@ -230,23 +154,23 @@ See `docs/tax-rules-reference.md` for the complete rule set with statutory citat
 
 | Data | Source |
 |------|--------|
-| Tax slabs and rates | Income Tax Act, Finance Act 2024, incometaxindia.gov.in |
-| PPF interest rate | Ministry of Finance quarterly notification, finmin.nic.in |
-| NSC interest rate | India Post, indiapost.gov.in |
-| SSY interest rate | India Post, indiapost.gov.in |
-| ELSS return assumption | AMFI India long-run SIP data, amfiindia.com |
-| NPS return assumption | PFRDA historical scheme performance, pfrda.org.in |
+| Tax slabs and rates | Income Tax Act, Finance Act 2024 |
+| PPF rate (7.1%) | Ministry of Finance, finmin.nic.in |
+| NSC rate (7.7%) | India Post, indiapost.gov.in |
+| SSY rate (8.2%) | India Post, indiapost.gov.in |
+| ELSS return assumption | AMFI India long-run SIP data |
+| NPS return assumption | PFRDA historical scheme performance |
 | CPI inflation | MOSPI, mospi.gov.in |
 
 ---
 
-## Project Author
+## Built By
 
 **Jessica Mathew**
 MBA Finance and Technology, MIT ADT University, Pune (Class of 2025)
 
-Portfolio: [jessicamathew31-coder.github.io](https://jessicamathew31-coder.github.io)
-GitHub: [github.com/jessicamathew31-coder](https://github.com/jessicamathew31-coder)
+[jessicamathew31-coder.github.io](https://jessicamathew31-coder.github.io) · [github.com/jessicamathew31-coder](https://github.com/jessicamathew31-coder)
 
-Available immediately for full-time roles in fintech data analytics, financial product management,
-and data-driven financial services.
+---
+
+*Available immediately for full-time roles in fintech, financial product, and data analytics.*
