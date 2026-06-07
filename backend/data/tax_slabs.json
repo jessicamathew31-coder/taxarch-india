@@ -1,0 +1,42 @@
+{
+  "tax_slabs": {
+    "description": "Income tax slab rates for FY 2025-26 under both regimes. Rates are fractions (0.05 = 5%). Source: Income Tax Act as amended by Finance Act 2024. incometaxindia.gov.in",
+    "old_regime": [
+      { "income_from": 0,       "income_to": 250000,  "rate": 0.00 },
+      { "income_from": 250001,  "income_to": 500000,  "rate": 0.05 },
+      { "income_from": 500001,  "income_to": 1000000, "rate": 0.20 },
+      { "income_from": 1000001, "income_to": null,    "rate": 0.30 }
+    ],
+    "new_regime": [
+      { "income_from": 0,       "income_to": 300000,  "rate": 0.00 },
+      { "income_from": 300001,  "income_to": 700000,  "rate": 0.05 },
+      { "income_from": 700001,  "income_to": 1000000, "rate": 0.10 },
+      { "income_from": 1000001, "income_to": 1200000, "rate": 0.15 },
+      { "income_from": 1200001, "income_to": 1500000, "rate": 0.20 },
+      { "income_from": 1500001, "income_to": null,    "rate": 0.30 }
+    ],
+    "notes": {
+      "cess": 0.04,
+      "rebate_87A_old": { "max_income": 500000, "max_rebate": 12500 },
+      "rebate_87A_new": { "max_income": 1200000, "max_rebate": 60000, "note": "Nil tax up to Rs 12 lakh under new regime from FY 2025-26" },
+      "standard_deduction_old": 50000,
+      "standard_deduction_new": 75000
+    }
+  },
+  "surcharge_slabs": {
+    "description": "Surcharge on basic income tax. Applied before cess. Both regimes follow the same surcharge structure from FY 2023-24 onwards, with the new regime capped at 25%.",
+    "old_regime": [
+      { "income_from": 0,        "income_to": 5000000,  "rate": 0.00 },
+      { "income_from": 5000001,  "income_to": 10000000, "rate": 0.10 },
+      { "income_from": 10000001, "income_to": 20000000, "rate": 0.15 },
+      { "income_from": 20000001, "income_to": 50000000, "rate": 0.25 },
+      { "income_from": 50000001, "income_to": null,     "rate": 0.37 }
+    ],
+    "new_regime": [
+      { "income_from": 0,        "income_to": 5000000,  "rate": 0.00 },
+      { "income_from": 5000001,  "income_to": 10000000, "rate": 0.10 },
+      { "income_from": 10000001, "income_to": 20000000, "rate": 0.15 },
+      { "income_from": 20000001, "income_to": null,     "rate": 0.25 }
+    ]
+  }
+}

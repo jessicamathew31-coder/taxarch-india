@@ -1,0 +1,265 @@
+{
+  "deductions": [
+    {
+      "section": "80C",
+      "description": "Investments in PPF, ELSS, NSC, life insurance premium, home loan principal repayment, tuition fees for children, ULIP, tax-saving FD, Sukanya Samriddhi Yojana, NPS (employee contribution)",
+      "max_amount": 150000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": "PPF,ELSS,NSC,LIC,NPS,SSY,ULIP,Tax_FD",
+      "regime_applicable": "old",
+      "requires_investment": true
+    },
+    {
+      "section": "80CCC",
+      "description": "Contribution to pension fund of a life insurer (e.g. LIC pension plan). Counted within the overall 80C+80CCC+80CCD(1) ceiling of Rs 1.5 lakh.",
+      "max_amount": 150000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": "LIC_Pension",
+      "regime_applicable": "old",
+      "requires_investment": true
+    },
+    {
+      "section": "80CCD(1)",
+      "description": "Employee or self-employed individual contribution to National Pension System (NPS Tier 1). Counted within the Rs 1.5 lakh combined ceiling.",
+      "max_amount": 150000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": "NPS",
+      "regime_applicable": "old",
+      "requires_investment": true
+    },
+    {
+      "section": "80CCD(1B)",
+      "description": "Additional NPS contribution over and above the Rs 1.5 lakh ceiling. This is the most commonly missed deduction. Available independently.",
+      "max_amount": 50000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": "NPS",
+      "regime_applicable": "old",
+      "requires_investment": true
+    },
+    {
+      "section": "80CCD(2)",
+      "description": "Employer contribution to employee NPS account. Up to 10% of salary (basic + DA) for private sector, 14% for central government employees. This deduction is available under the new regime as well.",
+      "max_amount": 0,
+      "eligible_profiles": "salaried",
+      "instruments": "NPS",
+      "regime_applicable": "both",
+      "requires_investment": false
+    },
+    {
+      "section": "80D",
+      "description": "Health insurance premium paid for self, spouse, and dependent children. Rs 25,000 for self and family; additional Rs 25,000 for parents; Rs 50,000 if parents are senior citizens.",
+      "max_amount": 100000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": "Health_Insurance",
+      "regime_applicable": "old",
+      "requires_investment": true
+    },
+    {
+      "section": "80DD",
+      "description": "Medical expenditure or insurance for a dependent with disability. Rs 75,000 (40-79% disability) or Rs 1,25,000 (80%+ severe disability). Fixed deduction, not linked to actual expense.",
+      "max_amount": 125000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80DDB",
+      "description": "Medical treatment of specified diseases (cancer, neurological diseases, AIDS, chronic renal failure, haematological disorders) for self or dependent. Rs 40,000 or actual expense whichever is lower; Rs 1,00,000 for senior citizens.",
+      "max_amount": 100000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80E",
+      "description": "Interest on education loan for higher studies (self, spouse, children, legal ward). No upper limit. Available for 8 consecutive years from the year repayment begins.",
+      "max_amount": 0,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80EE",
+      "description": "Additional interest deduction on home loan for first-time buyers. Rs 50,000 over and above Section 24(b). Loan must have been sanctioned between April 1, 2016 and March 31, 2017.",
+      "max_amount": 50000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80EEA",
+      "description": "Additional interest deduction for affordable housing loans. Rs 1.5 lakh over Section 24(b). Loan sanctioned between April 1, 2019 and March 31, 2022, stamp duty value up to Rs 45 lakh.",
+      "max_amount": 150000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80EEB",
+      "description": "Interest on loan for purchase of electric vehicle. Rs 1.5 lakh. Loan sanctioned between April 1, 2019 and March 31, 2023.",
+      "max_amount": 150000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80G",
+      "description": "Donations to specified charitable institutions and relief funds. 100% or 50% deduction depending on the institution. Some institutions have a 10% of adjusted gross total income cap.",
+      "max_amount": 0,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80GG",
+      "description": "Rent paid when HRA is not received from employer. Least of: Rs 5,000/month, 25% of total income, or actual rent minus 10% of total income.",
+      "max_amount": 60000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80GGB",
+      "description": "Contributions by Indian companies to political parties or electoral trusts. Full deduction. Only for companies, not individuals.",
+      "max_amount": 0,
+      "eligible_profiles": "self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80GGC",
+      "description": "Contributions by individuals to political parties or electoral trusts. Full deduction. Cannot be in cash.",
+      "max_amount": 0,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80TTA",
+      "description": "Interest income from savings bank accounts (not FDs). Up to Rs 10,000. For individuals below 60 years.",
+      "max_amount": 10000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80TTB",
+      "description": "Interest income from deposits (savings and FD) for senior citizens aged 60 and above. Up to Rs 50,000. Replaces 80TTA for senior citizens.",
+      "max_amount": 50000,
+      "eligible_profiles": "senior_citizen",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80U",
+      "description": "Deduction for individual with disability. Rs 75,000 (40-79% disability) or Rs 1,25,000 (80%+ severe disability). Self-assessment, no medical bills required, but disability certificate mandatory.",
+      "max_amount": 125000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "Section 24(b)",
+      "description": "Interest on home loan for self-occupied property. Up to Rs 2 lakh per year. For let-out property, full interest is deductible. Acquisition/construction must be within 5 years of loan.",
+      "max_amount": 200000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "HRA",
+      "description": "House Rent Allowance exemption for salaried employees living in rented accommodation. Least of: actual HRA received, 50% of basic salary (metro) or 40% (non-metro), actual rent minus 10% of basic salary.",
+      "max_amount": 0,
+      "eligible_profiles": "salaried",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "LTA",
+      "description": "Leave Travel Allowance for actual travel costs within India. Exempt twice in a block of four calendar years. Only air/rail/road fare covered, not hotel or food.",
+      "max_amount": 0,
+      "eligible_profiles": "salaried",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "Standard Deduction",
+      "description": "Flat deduction for salaried individuals and pensioners. Rs 50,000 under old regime, Rs 75,000 under new regime from FY 2025-26. No bills required.",
+      "max_amount": 50000,
+      "eligible_profiles": "salaried",
+      "instruments": null,
+      "regime_applicable": "both",
+      "requires_investment": false
+    },
+    {
+      "section": "Professional Tax",
+      "description": "State-levied professional tax paid by employee. Fully deductible from gross salary. Varies by state; maximum Rs 2,500 per year.",
+      "max_amount": 2500,
+      "eligible_profiles": "salaried",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80CCG",
+      "description": "Rajiv Gandhi Equity Savings Scheme (RGESS). 50% of investment, maximum Rs 25,000 deduction. First-time equity investors with income below Rs 12 lakh. Discontinued from FY 2017-18 but legacy claims still active.",
+      "max_amount": 25000,
+      "eligible_profiles": "salaried,self_employed",
+      "instruments": "RGESS",
+      "regime_applicable": "old",
+      "requires_investment": true
+    },
+    {
+      "section": "80QQB",
+      "description": "Royalty income of authors on books (not textbooks). Up to Rs 3 lakh. Only Indian resident authors.",
+      "max_amount": 300000,
+      "eligible_profiles": "self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80RRB",
+      "description": "Royalty income from patents registered under the Patents Act 1970. Up to Rs 3 lakh. Inventor must be an Indian resident.",
+      "max_amount": 300000,
+      "eligible_profiles": "self_employed",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80P",
+      "description": "Income of co-operative societies. Not applicable to individual taxpayers.",
+      "max_amount": 0,
+      "eligible_profiles": "cooperative",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    },
+    {
+      "section": "80LA",
+      "description": "Income of offshore banking units and International Financial Services Centres (IFSC). Not for typical individual taxpayers.",
+      "max_amount": 0,
+      "eligible_profiles": "corporate",
+      "instruments": null,
+      "regime_applicable": "old",
+      "requires_investment": false
+    }
+  ]
+}

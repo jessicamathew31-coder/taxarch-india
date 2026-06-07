@@ -1,0 +1,36 @@
+{
+  "inflation": {
+    "description": "CPI inflation assumptions for lifecycle projection. Used to deflate nominal future income to real terms for comparison. Source: mospi.gov.in",
+    "current_rate": 0.06,
+    "long_run_average": 0.055,
+    "historical": {
+      "2019-20": 0.072,
+      "2020-21": 0.063,
+      "2021-22": 0.055,
+      "2022-23": 0.067,
+      "2023-24": 0.053,
+      "2024-25": 0.048
+    }
+  },
+  "income_growth_presets": {
+    "description": "Suggested income growth rates by employment and career stage. Users can override.",
+    "early_career": 0.12,
+    "mid_career": 0.08,
+    "senior": 0.05,
+    "self_employed_conservative": 0.07,
+    "self_employed_aggressive": 0.15
+  },
+  "life_stage_thresholds": {
+    "description": "Age bands used to segment lifecycle output in the frontend chart.",
+    "early_career": [22, 30],
+    "mid_career":   [31, 45],
+    "peak_career":  [46, 55],
+    "pre_retirement": [56, 60],
+    "retirement":   [61, 85]
+  },
+  "projection_defaults": {
+    "retirement_age": 60,
+    "life_expectancy": 80,
+    "default_projection_years": 25
+  }
+}

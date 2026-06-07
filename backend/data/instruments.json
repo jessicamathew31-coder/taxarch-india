@@ -1,0 +1,118 @@
+{
+  "instruments": [
+    {
+      "name": "PPF",
+      "full_name": "Public Provident Fund",
+      "category": "80C",
+      "expected_return": 0.071,
+      "lock_in_years": 15,
+      "maturity_tax": "exempt",
+      "risk_level": "low",
+      "max_annual": 150000,
+      "section": "80C",
+      "notes": "Interest rate revised quarterly by Ministry of Finance. Historical average ~7.5-8%. EEE status: contribution, interest, and maturity all exempt. Partial withdrawal after 7 years. Source: finmin.nic.in"
+    },
+    {
+      "name": "ELSS",
+      "full_name": "Equity Linked Savings Scheme",
+      "category": "80C",
+      "expected_return": 0.12,
+      "lock_in_years": 3,
+      "maturity_tax": "ltcg_12.5",
+      "risk_level": "high",
+      "max_annual": 150000,
+      "section": "80C",
+      "notes": "Shortest lock-in among 80C instruments. Returns vary widely by fund. 12% is a conservative long-run SIP estimate based on Nifty 50 historical CAGR. LTCG above Rs 1.25 lakh taxed at 12.5% from FY 2024-25. Source: amfiindia.com"
+    },
+    {
+      "name": "NPS",
+      "full_name": "National Pension System Tier 1",
+      "category": "80C_80CCD",
+      "expected_return": 0.10,
+      "lock_in_years": 0,
+      "maturity_tax": "partial_exempt",
+      "risk_level": "medium",
+      "max_annual": 200000,
+      "section": "80CCD(1) + 80CCD(1B)",
+      "notes": "Lock-in until age 60. 60% corpus tax-free at maturity; 40% mandatorily annuitised. Returns depend on allocation between equity (E), corporate bonds (C), and government securities (G). 10% reflects moderate E50 allocation. Source: pfrda.org.in"
+    },
+    {
+      "name": "NSC",
+      "full_name": "National Savings Certificate",
+      "category": "80C",
+      "expected_return": 0.077,
+      "lock_in_years": 5,
+      "maturity_tax": "taxable",
+      "risk_level": "low",
+      "max_annual": null,
+      "section": "80C",
+      "notes": "Interest rate 7.7% for Q1 FY 2025-26. Interest accrues and is reinvested each year; that reinvested interest also qualifies as 80C deduction. Maturity proceeds taxable as income from other sources. Source: indiapost.gov.in"
+    },
+    {
+      "name": "SSY",
+      "full_name": "Sukanya Samriddhi Yojana",
+      "category": "80C",
+      "expected_return": 0.082,
+      "lock_in_years": 21,
+      "maturity_tax": "exempt",
+      "risk_level": "low",
+      "max_annual": 150000,
+      "section": "80C",
+      "notes": "Only for girl child below 10. Account matures when girl turns 21 or on marriage after 18. EEE status. Rate 8.2% for Q1 FY 2025-26. Max Rs 1.5 lakh per year. Source: indiapost.gov.in"
+    },
+    {
+      "name": "ULIP",
+      "full_name": "Unit Linked Insurance Plan",
+      "category": "80C",
+      "expected_return": 0.09,
+      "lock_in_years": 5,
+      "maturity_tax": "exempt",
+      "risk_level": "medium",
+      "max_annual": null,
+      "section": "80C",
+      "notes": "Returns after deducting fund management charges. Maturity proceeds exempt if annual premium does not exceed Rs 2.5 lakh (from FY 2021-22 for new policies). High charges make long-term returns lower than pure equity. Included for completeness."
+    },
+    {
+      "name": "Tax_FD",
+      "full_name": "Tax Saving Fixed Deposit",
+      "category": "80C",
+      "expected_return": 0.068,
+      "lock_in_years": 5,
+      "maturity_tax": "taxable",
+      "risk_level": "low",
+      "max_annual": 150000,
+      "section": "80C",
+      "notes": "5-year lock-in FD with scheduled banks. Interest is fully taxable as per slab rate, which significantly erodes effective return at higher tax brackets. Useful for those who prefer certainty over returns."
+    },
+    {
+      "name": "LIC",
+      "full_name": "Life Insurance Premium",
+      "category": "80C",
+      "expected_return": 0.055,
+      "lock_in_years": 0,
+      "maturity_tax": "exempt",
+      "risk_level": "low",
+      "max_annual": 150000,
+      "section": "80C",
+      "notes": "Premium on life insurance policies for self, spouse, children. Policy must be for minimum 2x annual premium sum assured. Returns on endowment policies are low (4-6%) but maturity is tax-free if premium is under 10% of sum assured."
+    },
+    {
+      "name": "Health_Insurance",
+      "full_name": "Health Insurance Premium",
+      "category": "80D",
+      "expected_return": 0.0,
+      "lock_in_years": 0,
+      "maturity_tax": "not_applicable",
+      "risk_level": "low",
+      "max_annual": 100000,
+      "section": "80D",
+      "notes": "Not an investment instrument; included for deduction mapping. Deduction: Rs 25,000 for self and family, Rs 25,000 additional for parents, Rs 50,000 if parents are senior citizens. Preventive health check-up Rs 5,000 within these limits."
+    }
+  ],
+  "return_assumptions": {
+    "inflation": 0.06,
+    "risk_free_rate": 0.065,
+    "equity_market_return": 0.13,
+    "note": "All return assumptions are long-run averages for projection purposes. Actual returns vary. Sources: mospi.gov.in for CPI, RBI for risk-free rate, amfiindia.com for equity market data."
+  }
+}
